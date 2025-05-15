@@ -127,3 +127,171 @@ function multiplyArr(arr) {
   return arr.reduce((acum, num) => acum * num, 1);
 }
 console.log(multiplyArr([1, 2, 3, 4]));
+
+function lengthWord(arr) {
+  return arr.map((word) => word.length);
+}
+console.log(lengthWord(["hola", "cirujano"]));
+
+function containSpaces(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") return true;
+  }
+  return false;
+}
+console.log(containSpaces("Hola"));
+console.log(containSpaces("Hola Jorge"));
+
+function containSpaces2(str) {
+  return str.includes(" ");
+}
+console.log(containSpaces2("Hola"));
+console.log(containSpaces2("Hola Jorge"));
+
+function spaceForDash(str) {
+  return str.replace(" ", "-");
+}
+console.log(spaceForDash("Hola Pepe"));
+
+function spaceForDash2(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      result += "-";
+    } else {
+      result += str[i];
+    }
+  }
+  return result;
+}
+console.log(spaceForDash2("Hola Pepe"));
+
+function countVowels(str) {
+  let vowels = "aeiouAEIOUáéíóúÁÉÍÓÚ";
+  return str.split("").filter((letter) => vowels.includes(letter)).length;
+}
+console.log(countVowels("hola"));
+console.log(countVowels("llggjj"));
+console.log(countVowels("aeioÚ"));
+
+function countVowels2(str) {
+  let count = 0;
+  let vowels = "aeiouAEIOUáéíóúÁÉÍÓÚ";
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) count++;
+  }
+  return count;
+}
+console.log(countVowels2("hola"));
+console.log(countVowels2("llggjj"));
+console.log(countVowels2("aeioÚ"));
+
+function plus5(arr) {
+  return arr.filter((num) => num > 5).length;
+}
+console.log(plus5([1, 2, 3, 4, 5, 6, 7, 8, 9, 2]));
+
+function plus5Two(arr) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 5) count++;
+  }
+  return count;
+}
+console.log(plus5Two([5, 5, 5, 6, 9]));
+
+function sumPos(arr) {
+  return arr.filter((num) => num > 0).reduce((acum, num) => acum + num, 0);
+}
+console.log(sumPos([-5, -2, -3, 1, 2, 3]));
+
+function numToStr(num) {
+  return num.toString();
+}
+console.log(numToStr(4));
+console.log(typeof numToStr(4));
+
+function reversedString(str) {
+  return str.split("").reverse().join("");
+}
+console.log(reversedString("hola"));
+
+function evenOdd(num) {
+  return num % 2 === 0 ? "Even" : "Odd";
+}
+console.log(evenOdd(4));
+console.log(evenOdd(5));
+
+function repeatN(str, n) {
+  return str.repeat(n);
+}
+console.log(repeatN("Hola", 3));
+
+function firstAndLast(str) {
+  return str.slice(1, -1);
+}
+console.log(firstAndLast("Hola Mundo"));
+
+function smallest(arr) {
+  return Math.min(...arr);
+}
+console.log(smallest([-5, 4, 8, 9, -22, 5]));
+
+function smallest2(arr) {
+  let min = Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+  return min;
+}
+console.log(smallest2([-5, 4, 8, 9, -22, 5]));
+
+function upper(str) {
+  return str.toUpperCase();
+}
+console.log(upper("hola"));
+console.log(upper("hoLa"));
+
+function mathOperations(operation, value1, value2) {
+  if (operation === "/") return value1 / value2;
+  if (operation === "*") return value1 * value2;
+  if (operation === "-") return value1 - value2;
+  if (operation === "+") return value1 + value2;
+  if (operation === "%") return value1 % value2;
+}
+console.log(mathOperations("%", 2, 6));
+console.log(mathOperations("+", 2, 6));
+
+function opposite(num) {
+  return -num;
+}
+console.log(4);
+console.log(-44);
+
+function returnNegative(num) {
+  return num > 0 ? -num : num;
+}
+console.log(returnNegative(4));
+console.log(returnNegative(-7));
+
+function countSheep(arr) {
+  return arr.filter(Boolean).length;
+}
+console.log(countSheep([true, true, true, false, false]));
+
+function abbreviate(str) {
+  return (
+    str
+      .split(" ")
+      .map((word) => word[0].toUpperCase())
+      .join(".") + "."
+  );
+}
+console.log(abbreviate("martin pravia"));
+
+function duplicateNum(num) {
+  return num * 2;
+}
+console.log(duplicateNum(4));
