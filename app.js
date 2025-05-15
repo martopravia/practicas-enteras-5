@@ -295,3 +295,158 @@ function duplicateNum(num) {
   return num * 2;
 }
 console.log(duplicateNum(4));
+
+// ejercicios 7 kyu
+
+function middleChar(str) {
+  let middle = str.length;
+  if (middle % 2 === 0) {
+    return str[middle / 2 - 1] + str[middle / 2];
+  } else {
+    return str[Math.floor(middle / 2)];
+  }
+}
+console.log(middleChar("hola"));
+console.log(middleChar("Ala"));
+
+function middleChar2(str) {
+  return str.length % 2
+    ? str[Math.floor(str.length / 2)]
+    : str[str.length / 2 - 1] + str[str.length / 2];
+}
+console.log(middleChar2("hola"));
+console.log(middleChar2("hol"));
+
+function maxAndMin(str) {
+  let nums = str.split(" ").map(Number);
+  return [Math.max(...nums), Math.min(...nums)];
+}
+console.log(maxAndMin("4 5 9 2 7 -3 8 -55"));
+
+function mumbling(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    result += str[i].toUpperCase() + str[i].toLowerCase().repeat(i);
+    if (i < str.length - 1) result += "-";
+  }
+  return result;
+}
+console.log(mumbling("hola"));
+
+function mumbling2(str) {
+  return str
+    .split("")
+    .map((word, index) => word.toUpperCase() + word.toLowerCase().repeat(index))
+    .join("-");
+}
+console.log(mumbling2("hola"));
+
+function sortNumber(num) {
+  return num
+    .toString()
+    .split("")
+    .sort((a, b) => b - a)
+    .join("");
+}
+console.log(sortNumber(5679));
+
+function shortestWord(str) {
+  let length = str.split(" ").map((word) => word.length);
+  return Math.min(...length);
+}
+console.log(shortestWord("Hola ey vocabulario"));
+
+function isogram(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) !== str.lastIndexOf(str[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(isogram("hola"));
+console.log(isogram("holaHo"));
+
+function ExesAndOhs(words) {
+  let str = words.toLowerCase();
+  let x = 0;
+  let o = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "x") x++;
+    if (str[i] === "o") o++;
+  }
+  return x === o;
+}
+console.log(ExesAndOhs("x o x o"));
+console.log(ExesAndOhs("x o x o x X"));
+console.log(ExesAndOhs("x o x o x X O O"));
+
+function noVowels(str) {
+  let vowels = "aeiouÁÉÍÓÚAEIOUáéíóú";
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (!vowels.includes(str[i])) {
+      newStr += str[i];
+    }
+  }
+  return newStr;
+}
+console.log(noVowels("Hola pepe"));
+
+function noVowels2(str) {
+  let vowels = "aeiouÁÉÍÓÚAEIOUáéíóú";
+  return str
+    .split("")
+    .filter((word) => !vowels.includes(word))
+    .join("");
+}
+console.log(noVowels2("Hola pepe"));
+
+function capitalizeFirstChar(str) {
+  return str
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}
+console.log(capitalizeFirstChar("hola pedrito como estas"));
+
+function squareDigit(num) {
+  return num
+    .toString()
+    .split("")
+    .map((number) => number ** 2)
+    .join("");
+}
+console.log(squareDigit("2345"));
+
+function binaryAddition(num1, num2) {
+  return (num1 + num2).toString(2);
+}
+console.log(binaryAddition(358, 6));
+
+function countDivisors(num) {
+  let count = 0;
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) count++;
+  }
+  return count;
+}
+console.log(countDivisors(564));
+
+function vowelCount(str) {
+  let vowels = "aeiouÁÉÍÓÚAEIOUáéíóú";
+  return str.split("").filter((letter) => vowels.includes(letter)).length;
+}
+console.log(vowelCount("hola"));
+console.log(vowelCount("holaaaaa"));
+
+function printErrors(words) {
+  let str = words.toLowerCase();
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] > "m") count++;
+  }
+  let percentage = (count / str.length) * 100;
+  return percentage.toFixed(2) + "%";
+}
+console.log(printErrors("Hola Corcho del mal"));
