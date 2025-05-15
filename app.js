@@ -62,3 +62,68 @@ function smiles(arr) {
   return arr.filter((face) => happy.includes(face)).length;
 }
 console.log(smiles([":)", ";(", ";}", ":-D"]));
+
+// Ejercicios 8 kyu nuevamente
+
+function reverseStr(str) {
+  return str.split("").reverse().join("");
+}
+console.log(reverseStr("Hola Carola"));
+
+function sumArr(arr) {
+  return arr.reduce((acc, num) => acc + num, 0);
+}
+console.log(sumArr([2, 4, 6, 8]));
+
+function firstChar(str) {
+  return str[0];
+}
+console.log(firstChar("Hola"));
+
+function esPar(num) {
+  return num % 2 === 0 ? true : false;
+}
+console.log(esPar(4));
+console.log(esPar(5));
+
+function lastChar(str) {
+  return str[str.length - 1];
+}
+console.log(lastChar("hola coco"));
+
+function repeatStr(str, times) {
+  return str.repeat(times);
+}
+console.log(repeatStr("hola!", 3));
+
+function repeatStrSpace(str, times) {
+  let newStr = "";
+  for (let i = 0; i < times; i++) {
+    newStr += str + " ";
+  }
+  return newStr;
+}
+console.log(repeatStrSpace("hola!", 3));
+
+function containsNumber(arr, num) {
+  return arr.includes(num);
+}
+console.log(containsNumber([1, 2, 3, 4], 2));
+console.log(containsNumber([1, 2, 3, 4], 7));
+
+function onlyEven(arr) {
+  return arr.filter((num) => num % 2 === 0);
+}
+console.log(onlyEven([2, 4, 5, 7]));
+
+function startsWithVowel(str) {
+  let vowel = "aeiouAEIOUáéíóúÁÉÍÓÚ";
+  return vowel.includes(str[0]);
+}
+console.log(startsWithVowel("Hola"));
+console.log(startsWithVowel("Alo"));
+
+function multiplyArr(arr) {
+  return arr.reduce((acum, num) => acum * num, 1);
+}
+console.log(multiplyArr([1, 2, 3, 4]));
