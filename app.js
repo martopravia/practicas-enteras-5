@@ -563,3 +563,98 @@ function multiplyForNum(arr, num) {
   return arr.map((n) => n * num);
 }
 console.log(multiplyForNum([1, 2, 3], 2));
+
+function palindrome4(str) {
+  return str === str.split("").reverse().join("");
+}
+console.log(palindrome4("hola"));
+console.log(palindrome4("ava"));
+
+function countEven(arr) {
+  return arr.filter((num) => num % 2 === 0).length;
+}
+console.log(countEven([2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 9]));
+
+// Ejercicios 6kyu
+
+function findTheOnly(arr) {
+  let odd = [];
+  let even = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf(arr[i]) === arr.lastIndexOf(arr[i])) {
+      odd.push(arr[i]);
+    } else {
+      even.push(arr[i]);
+    }
+  }
+  return odd;
+}
+console.log(findTheOnly([4, 1, 2, 1, 2]));
+
+function diferenceArr3(arr1, arr2) {
+  return arr1.filter((num) => !arr2.includes(num));
+}
+console.log(diferenceArr3([1, 2, 2, 3], [2]));
+
+function orderEvenOnly(arr) {
+  let result = [];
+  let index = 0;
+  let evenFiltered = arr.filter((num) => num % 2 !== 0).sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      result.push(arr[i]);
+    } else {
+      result.push(evenFiltered[index]);
+      index++;
+    }
+  }
+  return result;
+}
+console.log(orderEvenOnly([5, 3, 2, 8, 1, 4]));
+
+function twoVersionsCapitalize(str) {
+  let firstCap = "";
+  let secondCap = "";
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 === 0) {
+      firstCap += str[i].toUpperCase();
+      secondCap += str[i].toLowerCase();
+    } else {
+      firstCap += str[i].toLowerCase();
+      secondCap += str[i].toUpperCase();
+    }
+  }
+  return [firstCap, secondCap];
+}
+console.log(twoVersionsCapitalize("abcdef"));
+
+function deleteLetters(str1, str2) {
+  return str1.split("").filter((letter) => !str2.includes(letter));
+}
+console.log(deleteLetters("hello", "el"));
+
+function intercalate(arr1, arr2) {
+  return arr1.flatMap((num, index) => [num, arr2[index]]);
+}
+console.log(intercalate([1, 2, 3], [4, 5, 6]));
+
+function firtsCharNotRepeated(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+      return str[i];
+    }
+  }
+  return "No match";
+}
+console.log(firtsCharNotRepeated("abacabad"));
+
+function allTheCharNotRepeated(str) {
+  let result = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+      result.push(str[i]);
+    }
+  }
+  return result;
+}
+console.log(allTheCharNotRepeated("abacabad"));
