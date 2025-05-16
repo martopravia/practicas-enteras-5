@@ -450,3 +450,116 @@ function printErrors(words) {
   return percentage.toFixed(2) + "%";
 }
 console.log(printErrors("Hola Corcho del mal"));
+
+function sumPositives(arr) {
+  return arr.filter((num) => num > 0).reduce((acum, num) => acum + num, 0);
+}
+console.log(sumPositives([-5, 8, 2, -99, -4, -2, 2]));
+
+function palindrome(word) {
+  let str = word.toLowerCase();
+  return str === str.split("").reverse().join("");
+}
+console.log(palindrome("hola"));
+console.log(palindrome("lalal"));
+console.log(palindrome("lalaL"));
+
+function palindrome2(word) {
+  let str = word.toLowerCase();
+  let backwards = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    backwards += str[i];
+  }
+  if (backwards === str) return true;
+  else return false;
+}
+console.log(palindrome2("hola"));
+console.log(palindrome2("lalal"));
+console.log(palindrome2("lalaL"));
+
+function theSame(arr) {
+  return arr.every((num) => num === arr[0]);
+}
+console.log(theSame([2, 2, 2]));
+console.log(theSame([2, 2, 2, 3]));
+
+function endStringWith(str, last) {
+  return str.endsWith(last);
+}
+console.log(endStringWith("hola pepe", "pepe"));
+
+function capitalizeFirst(str) {
+  return str
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}
+console.log(capitalizeFirst("hola pepe como estas?"));
+console.log(capitalizeFirst("HOLA MANOLO"));
+
+function inverseArr(arr) {
+  return arr.reverse();
+}
+console.log(inverseArr([1, 2, 3]));
+
+function inverseArr2(arr) {
+  let result = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    result.push(arr[i]);
+  }
+  return result;
+}
+console.log(inverseArr2([1, 2, 3]));
+
+function duplicate(str) {
+  return str
+    .split("")
+    .map((word) => word + word)
+    .join("");
+}
+console.log(duplicate("Hola"));
+
+function countVowels(str) {
+  let vowels = "aeiouAEIOUáéíóúÁÉÍÓÚ";
+  return str.split("").filter((str) => vowels.includes(str)).length;
+}
+console.log(countVowels("Hola"));
+console.log(countVowels("AAaaáÁ"));
+
+function returnOdd(arr) {
+  let odd = [];
+  let even = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf(arr[i]) === arr.lastIndexOf(arr[i])) {
+      odd.push(arr[i]);
+    } else {
+      even.push(arr[i]);
+    }
+  }
+  return odd;
+}
+console.log(returnOdd([1, 2, 2, 3, 1]));
+
+function squareOfNum(num) {
+  return num
+    .toString()
+    .split("")
+    .map((num) => num ** 2)
+    .join("");
+}
+console.log(squareOfNum(9119));
+
+function sumAllPositives(arr) {
+  return arr.filter((num) => num > 0).reduce((accum, num) => accum + num, 0);
+}
+console.log(sumAllPositives([1, -4, 7, 12]));
+
+function theMin(arr) {
+  return Math.min(...arr);
+}
+console.log(theMin([-5, 8, 555, -555, 999]));
+
+function multiplyForNum(arr, num) {
+  return arr.map((n) => n * num);
+}
+console.log(multiplyForNum([1, 2, 3], 2));
