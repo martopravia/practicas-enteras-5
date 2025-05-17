@@ -658,3 +658,77 @@ function allTheCharNotRepeated(str) {
   return result;
 }
 console.log(allTheCharNotRepeated("abacabad"));
+
+function balanced(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "(") {
+      count++;
+    } else if (str[i] === ")") {
+      count--;
+    }
+    if (count < 0) return false;
+  }
+  return count === 0;
+}
+console.log(balanced("(())"));
+console.log(balanced("(()))))"));
+
+function findTheOddOrEven(arr) {
+  let odd = [];
+  let even = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      even.push(arr[i]);
+    } else {
+      odd.push(arr[i]);
+    }
+  }
+  if (odd.length === 1) return odd;
+  if (even.length === 1) return even;
+}
+console.log(findTheOddOrEven([2, 4, 6, 8, 10, 3]));
+
+function whoLikesIt(arr) {
+  if (arr.length === 0) return "Nobody likes this";
+  if (arr.length === 1) return `${arr[0]} likes this`;
+  if (arr.length === 2) return `${arr[0]} and ${arr[1]} likes this`;
+  if (arr.length === 3)
+    return `${arr[0]}, ${arr[1]} and ${arr[2]} more likes this`;
+  if (arr.length >= 4)
+    return `${arr[0]}, ${arr[1]} and ${arr.length - 2} likes this`;
+}
+console.log(whoLikesIt(["pepe", "maria", "juan", "pedro"]));
+console.log(whoLikesIt(["pepe", "maria", "juan"]));
+console.log(whoLikesIt(["pepe", "maria", "juan"]));
+console.log(whoLikesIt(["pepe"]));
+console.log(whoLikesIt([]));
+
+function orderWords(words) {
+  let str = words.split(" ");
+  let result = [];
+  for (let i = 1; i <= str.length; i++) {
+    for (let word of str) {
+      if (word.includes(i.toString())) result.push(word);
+    }
+  }
+  return result.join(" ");
+}
+console.log(orderWords("is2 Thi1s T4est 3a"));
+
+function sumMultiply3Or5(num) {
+  let sum = 0;
+  for (let i = 0; i < num; i++) {
+    if (i % 3 === 0 || i % 5 === 0) sum += i;
+  }
+  return sum;
+}
+console.log(sumMultiply3Or5(10));
+
+function invert5Plus(str) {
+  return str
+    .split(" ")
+    .map((word) => (word.length > 5 ? word.split("").reverse().join("") : word))
+    .join(" ");
+}
+console.log(invert5Plus("Hey fellow warriors"));
