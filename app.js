@@ -732,3 +732,25 @@ function invert5Plus(str) {
     .join(" ");
 }
 console.log(invert5Plus("Hey fellow warriors"));
+
+function countChar(str) {
+  let obj = {};
+  for (let char of str) {
+    if (obj[char]) {
+      obj[char]++;
+    } else {
+      obj[char] = 1;
+    }
+  }
+  return obj;
+}
+console.log(countChar("aba"));
+
+function phoneNumber(num) {
+  let base = "(xxx) - xxx-xxxx";
+  for (let i = 0; i < num.length; i++) {
+    base = base.replace("x", num[i]);
+  }
+  return base;
+}
+console.log(phoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
