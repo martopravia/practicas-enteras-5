@@ -754,3 +754,77 @@ function phoneNumber(num) {
   return base;
 }
 console.log(phoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+function findTheOdd(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) count++;
+    }
+    if (count % 2 !== 0) return arr[i];
+  }
+}
+console.log(findTheOdd([1, 1, 2]));
+
+function camelCaseOneWord(str) {
+  return str
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join("");
+}
+console.log(camelCaseOneWord("hello word"));
+
+function sumSquareToOne(num) {
+  while (num >= 10) {
+    num = num
+      .toString()
+      .split("")
+      .reduce((a, b) => a + parseInt(b), 0);
+  }
+  return num;
+}
+console.log(sumSquareToOne(942));
+
+function panagram(str) {
+  let alphabet = "abcdefghijklmnopqrstuvwxyz";
+  return alphabet
+    .split("")
+    .every((letter) => str.toLowerCase().includes(letter));
+}
+console.log(panagram("The quick brown fox jumps over the lazy dog"));
+
+function uniqueOrder(str) {
+  let newArr = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== str[i - 1]) {
+      newArr.push(str[i]);
+    }
+  }
+  return newArr;
+}
+console.log(uniqueOrder("AAAABBBCCCDDDABBBB"));
+
+function sumTheSmallest(arr) {
+  let small1 = Infinity;
+  let small2 = Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < small1) {
+      small1 = arr[i];
+    } else if (arr[i] < small2) {
+      small2 = arr[i];
+    }
+  }
+  return small1 + small2;
+}
+console.log(sumTheSmallest([5, 8, 12, 18, 22]));
+
+function sumTheSmallest2(arr) {
+  let sorted = arr.sort((a, b) => a - b);
+  return sorted[0] + sorted[1];
+}
+console.log(sumTheSmallest2([5, 8, 12, 18, 22]));
+
+function aNotInB123(arr1, arr2) {
+  return arr1.filter((words) => !arr2.includes(words));
+}
+console.log(aNotInB123([1, 2, 2, 2, 3], [2]));
